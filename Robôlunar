@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+public class trabalho {
+static int bateria=100;
+    static Scanner sc = new Scanner(System.in);
+    static int x;
+    static String acao;
+    static Boolean sair = false;
+    public static void main(String[] args){
+    while (bateria>10 && sair == false) {
+        System.out.println("------------------------------------");
+        System.out.println("Olá, selecione a ação que gostaria de realizar ");
+        System.out.println("1 - ir para frente ");
+        System.out.println("2 - ir para trás ");
+        System.out.println("3 - virar a direita ");
+        System.out.println("4 - virar a esquerda ");
+        System.out.println("5 - tirar uma foto ");
+        System.out.println("6 - Status atual do robô ");
+        System.out.println("7 - Sair");
+        x = sc.nextInt();
+        switch (x) {
+            case 1:
+                System.out.println("Comando concluido para frente!");
+                bateria -= 10;
+                System.out.println("A bateria está com " + bateria + "%");
+                acao = ("robô foi para frente");
+                break;
+            case 2:
+                System.out.println("Comando concluido para trás!");
+                bateria -= 10;
+                System.out.println("A bateria está com " + bateria + "%");
+                acao = ("robô foi para trás");
+                break;
+            case 3:
+                angulo("direita");
+                acao = ("robô foi para direita");
+                break;
+            case 4:
+                angulo("esquerda");
+                acao = ("robô foi para esquerda");
+                break;
+            case 5:
+                System.out.println("Comando concluido, tirando uma foto!");
+                bateria -= 10;
+                System.out.println("A bateria está com " + bateria + "%");
+                acao = ("robô tirou uma foto");
+                break;
+            case 6:
+                status();
+                break;
+            case 7:
+                System.out.println("Encerrando o Sistema.");
+                sair = true;
+                break;
+            default:
+                System.out.println("Comando inválido");
+                break;
+        }
+    }
+    if (bateria <=10){
+        System.out.println("Bateria fraca, regarregando!");
+    }
+    }
+
+public static void angulo(String direcao){
+    System.out.println("Olá, selecione a ação que gostaria de realizar ");
+    System.out.println("1 - virar 90 graus a "+ direcao);
+    System.out.println("2 - virar 180 graus a "+ direcao);
+    System.out.println("3 - virar 270 graus a "+ direcao);
+
+    int  y = sc.nextInt();
+    switch (y){
+        case 1:
+            System.out.println("Comando concluído. Virou 90 graus a"+ direcao);
+            bateria-=10;
+            System.out.println("A bateria está com "+bateria +"%");
+            break;
+        case 2:
+            System.out.println("Comando concluído. Virou 180 graus a"+ direcao);
+            bateria-=10;
+            System.out.println("A bateria está com "+bateria +"%");
+            break;
+        case 3:
+            System.out.println("Comando concluído. Virou 270 graus a"+ direcao);
+            bateria-=10;
+            System.out.println("A bateria está com "+bateria +"%");
+            break;
+        default:
+            System.out.println("comando inválido");
+            break;
+    }
+}
+    public static void status(){
+        System.out.println(acao);
+        System.out.println("bateria está com "+bateria+"%");
+    }
+}
